@@ -30,9 +30,7 @@ pipeline{
                           docker login -u sowmyakandagadda -p Kandagaddala@123
                           docker pull sowmyakandagadda/django:1.0.0
                           docker run -d -p 8000:8000 --name djangocontainer sowmyakandagadda/django:1.0.0 
-                          docker exec djangocontainer python manage.py makemigrations 
-                          docker exec djangocontainer python manage.py migrate 
-                          docker restart djangocontainer 
+                         
                         """
             }
         }
