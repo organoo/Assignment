@@ -23,7 +23,7 @@ pipeline{
         stage('connecting to docker server and running a container'){
             steps{
                      sh """
-                          sshpass -p ubuntu ssh ubuntu@43.204.116.216  \
+                          sshpass -p ubuntu ssh ubuntu@13.232.206.78  \
                           docker stop djangocontainer || true
                           docker rm -f djangocontainer || true 
                           docker logout
