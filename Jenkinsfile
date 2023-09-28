@@ -22,21 +22,18 @@ pipeline{
         }
         stage('connecting to docker server and running a container'){
             steps{
-                sshagent(['46715635-9313-49b7-97d6-3a76db474da7'])
-                 {
                      sh """
-                          sshpass -p ubuntu ssh ubuntu@43.204.147.153  \
+                          sshpass -p ubuntu ssh ubuntu@65.2.5.187  \
                           docker stop djangocontainer || true
                           docker rm -f djangocontainer || true 
+                          docker logout
                           docker login -u sowmyakandagadda -p Kandagaddala@123
                           docker pull sowmyakandagadda/django:1.0.0
                           docker run -d -p 8000:8000 --name djangocontainer sowmyakandagadda/django:1.0.0 
                           docker exec djangocontainer python manage.py makemigrations 
                           docker exec djangocontainer python manage.py migrate 
                           docker restart djangocontainer 
-                        """  
-                     
-                 }
+                        """
             }
         }
         
