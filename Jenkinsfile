@@ -29,7 +29,7 @@ pipeline{
                           docker logout
                           docker login -u sowmyakandagadda -p Kandagaddala@123
                           docker pull sowmyakandagadda/django:1.0.0
-                          docker run -d -p 8000:8000 --name djangocontainer -v /home/ubuntu/Assignment/db.sqlite3:app/src/volume1 -e EMAIL_USER=sowmyakbsss@gmail.com  -e EMAIL_PASS=Kbsss@123 sowmyakandagadda/django:1.0.0 
+                          docker run -d -p 8000:8000 --name djangocontainer -v /var/lib/jenkins/workspace/django blog app/db.sqlite3:app/src/volume1/db.sqlite3 -e EMAIL_USER=sowmyakbsss@gmail.com  -e EMAIL_PASS=Kbsss@123 sowmyakandagadda/django:1.0.0 
                           docker exec djangocontainer python manage.py makemigrations 
                           docker exec djangocontainer python manage.py migrate 
                           docker restart djangocontainer 
