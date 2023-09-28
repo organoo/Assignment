@@ -29,9 +29,7 @@ pipeline{
                           docker logout
                           docker login -u sowmyakandagadda -p Kandagaddala@123
                           docker pull sowmyakandagadda/django:1.0.0
-                          docker run -d -p 8000:8000 --name djangocontainer sowmyakandagadda/django:1.0.0 
-                          docker run -e SECRET_KEY=<your_secret_key> -e DATABASE_URL=<your_database_url> -e EMAIL_USER=<your_email_username> -e EMAIL_PASS=<your_email_password> -p 8000:8000 my-django-app
-
+                          docker run -d -p 8000:8000 --name djangocontainer  -e EMAIL_USER=Sowmya Kandhagaddala  -e EMAIL_PASS=Kbsss@123 sowmyakandagadda/django:1.0.0 
                           docker exec djangocontainer python manage.py makemigrations 
                           docker exec djangocontainer python manage.py migrate 
                           docker restart djangocontainer 
